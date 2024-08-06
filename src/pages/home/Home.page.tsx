@@ -1,4 +1,4 @@
-import { AppShell } from "@mantine/core";
+import { Container } from "@mantine/core";
 import { Helmet } from "react-helmet";
 
 export function HomePage() {
@@ -7,7 +7,7 @@ export function HomePage() {
       <Helmet>
         <title>Home | Quizzle</title>
       </Helmet>
-      <AppShell.Main>Home Page</AppShell.Main>
+      <Container>Home Page</Container>
     </>
   );
 }

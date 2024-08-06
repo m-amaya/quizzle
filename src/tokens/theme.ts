@@ -2,23 +2,60 @@ import {
   createTheme,
   CSSVariablesResolver,
   DEFAULT_THEME,
-  mergeMantineTheme
+  mergeMantineTheme,
+  Tooltip
 } from "@mantine/core";
 
 const themeOverride = createTheme({
   autoContrast: true,
   colors: {
-    cherry: [
-      "#ffe8ef",
-      "#ffced9",
-      "#ff9baf",
-      "#ff6483",
-      "#fe385e",
-      "#fe1b46",
-      "#ff093a",
-      "#e4002c",
-      "#cb0026",
-      "#b20020"
+    grape: [
+      "#fbf5ff",
+      "#f7e7ff",
+      "#efd4ff",
+      "#e3b2ff",
+      "#cb6bff",
+      "#c151fb",
+      "#b02eef",
+      "#991ed2",
+      "#801eab",
+      "#69198a"
+    ],
+    ocean: [
+      "#ebffff",
+      "#cdfcff",
+      "#a1f6ff",
+      "#6beeff",
+      "#1ad9f6",
+      "#00bcdc",
+      "#0195b9",
+      "#097795",
+      "#116079",
+      "#134f66"
+    ],
+    pink: [
+      "#fff1f3",
+      "#ffe3e7",
+      "#ffccd5",
+      "#ffa1b2",
+      "#ff7d97",
+      "#f93a66",
+      "#e71750",
+      "#c30d43",
+      "#a30e3f",
+      "#8b103d"
+    ],
+    yellow: [
+      "#fff9eb",
+      "#ffeec6",
+      "#ffdb88",
+      "#ffcd69",
+      "#ffab20",
+      "#f98707",
+      "#dd6102",
+      "#b74106",
+      "#94320c",
+      "#7a2a0d"
     ]
   },
   cursorType: "pointer",
@@ -26,15 +63,25 @@ const themeOverride = createTheme({
   focusRing: "auto",
   fontFamily: "'Inter Variable', sans-serif",
   headings: {
-    fontFamily: "'Inter Variable', sans-serif"
+    fontFamily: "'Quicksand Variable', sans-serif",
+    fontWeight: "700"
   },
-  primaryColor: "cherry"
+  primaryColor: "pink",
+  components: {
+    Tooltip: Tooltip.extend({
+      defaultProps: {
+        offset: 10
+      }
+    })
+  }
 });
 
 export const theme = mergeMantineTheme(DEFAULT_THEME, themeOverride);
 
-export const resolver: CSSVariablesResolver = () => ({
+export const resolver: CSSVariablesResolver = (theme) => ({
   variables: {},
-  light: {},
+  light: {
+    "--mantine-color-body": theme.colors.gray[1]
+  },
   dark: {}
 });
