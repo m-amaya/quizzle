@@ -1,0 +1,9 @@
+.avatarButton {
+  border: 2px solid var(--mantine-color-pink-6);
+  cursor: pointer;
+
+  &[aria-expanded] {
+    outline-color: var(--mantine-color-pink-6);
+    outline-offset: 4px;
+  }
+}

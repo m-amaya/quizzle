@@ -1,4 +1,5 @@
 import {
+  Button,
   createTheme,
   CSSVariablesResolver,
   DEFAULT_THEME,
@@ -68,6 +69,14 @@ const themeOverride = createTheme({
   },
   primaryColor: "pink",
   components: {
+    Button: Button.extend({
+      styles: (theme) => ({
+        root: {
+          "--button-bg": theme.colors.pink[6],
+          "--button-hover": theme.colors.pink[7]
+        }
+      })
+    }),
     Tooltip: Tooltip.extend({
       defaultProps: {
         offset: 10
